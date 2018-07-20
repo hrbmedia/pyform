@@ -48,8 +48,11 @@ Best practice to use Django / Github / Virtualenv / PostgreSQL on Ubuntu
 - install postgreSQL (Ubuntu includes PostgreSQL by default) : 
 	$ apt-get install postgresql-10
 
+
 - use the operating system user postgres to create your database : 
 	$ sudo -u postgres -i
+
+- Or to create user : $ sudo -u postgres createuser ### user name ###
 
 - enter PostgreSQL : 
 	$ psql
@@ -74,6 +77,22 @@ Best practice to use Django / Github / Virtualenv / PostgreSQL on Ubuntu
 ##### DJANGO > POSTGRESQL ####
 
 - change settings database in settings.py
-	$ ### Dossier Django ###/settings.py
-	...
+	$ ### Django folder ###/settings.py
+	
+	DATABASES = {
+	    'default': {
+	        'ENGINE': 'django.db.backends.postgresql',
+	        'NAME': '###dbname###',
+	        'USER': '',
+	        'PASSWORD': '',
+	        'HOST': '',
+	        'PORT': '5432',
+	    }
+	}
 
+- migration : 
+	$ cd ### Django folder that contains manage.py ###/ 
+	$ ./manage.py migrate
+
+- start server :
+	$ ./manage.py runserver
