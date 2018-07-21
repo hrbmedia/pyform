@@ -13,8 +13,7 @@ Best practice to use Django / Github / Virtualenv / PostgreSQL on Ubuntu
 - Enter local folder
 	$ cd ### local folder ###
 
-- if you need : 
-	$ install virtualenv
+- if you need, install virtualenv
 
 - create virtual env : 
 	$ virtualenv env
@@ -31,7 +30,7 @@ Best practice to use Django / Github / Virtualenv / PostgreSQL on Ubuntu
 
 ##### DJANGO ####
 
-- Install Django
+- Install Django :
 	$ pip install django
 
 - verification : 
@@ -42,17 +41,14 @@ Best practice to use Django / Github / Virtualenv / PostgreSQL on Ubuntu
 
 ##### POSTGRESQL ####
 
-- to use PostgreSQL with Django, we need library psycopg2 : 
+- to use PostgreSQL with Django, you need library psycopg2 : 
 	$ pip install psycopg2
 
 - install postgreSQL (Ubuntu includes PostgreSQL by default) : 
 	$ apt-get install postgresql-10
 
-
 - use the operating system user postgres to create your database : 
 	$ sudo -u postgres -i
-
-- Or to create user : $ sudo -u postgres createuser ### user name ###
 
 - enter PostgreSQL : 
 	$ psql
@@ -96,3 +92,17 @@ Best practice to use Django / Github / Virtualenv / PostgreSQL on Ubuntu
 
 - start server :
 	$ ./manage.py runserver
+
+##### CHANGE LANGUAGE & TIME ZONE ####
+
+- open settings.py
+- change LANGUAGE_CODE = 'fr'
+- change TIME_ZONE = 'Europe/Paris'
+
+##### CREATE APP ####
+
+	$ django-admin startapp ### name of app ###
+
+- Update settings.py, in INSTALLED_APPS add :
+	'###name of app###.apps.###nameConfig###',
+
